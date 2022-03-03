@@ -927,7 +927,7 @@ static Error read_problem(Solver *solver, FILE *stream)
             int repr;
 
             // Read an integer
-            if (fscanf(stream, "%d ", &repr) != 1) {
+            if (fscanf(stream, " %d", &repr) != 1) {
                 fprintf(stderr, "Expected more clauses\n");
                 err = ERROR_INVALID_FORMAT;
                 goto cleanup_solver;
