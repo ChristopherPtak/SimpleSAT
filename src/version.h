@@ -1,0 +1,8 @@
+
+#ifndef SIMPLESAT_VERSION_H
+#define SIMPLESAT_VERSION_H
+
+#define SIMPLESAT_VERSION "0.0.1"
+
+#endif
+
