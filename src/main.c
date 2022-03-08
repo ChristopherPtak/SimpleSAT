@@ -1,6 +1,8 @@
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 #include "options.h"
@@ -58,7 +60,8 @@ static Error solve_problem(const Options *opts)
         FILE *stream = fopen(opts->infile, "r");
 
         if (stream == NULL) {
-            fprintf(stderr, "Unable to open file %s\n", opts->infile);
+            fprintf(stderr, "simplesat: %s: %s\n",
+                    opts->infile, strerror(errno));
             err = ERROR_FILE_ACCESS;
             goto cleanup;
         }
@@ -83,7 +86,8 @@ static Error solve_problem(const Options *opts)
         FILE *stream = fopen(opts->outfile, "w");
 
         if (stream == NULL) {
-            fprintf(stderr, "Unable to open file %s\n", opts->outfile);
+            fprintf(stderr, "simplesat: %s: %s\n",
+                    opts->outfile, strerror(errno));
             err = ERROR_FILE_ACCESS;
             goto cleanup_solver;
         }

@@ -29,11 +29,11 @@ Error parse_options(Options *opts, int argc, char **argv)
                 if (++i != argc) {
                     opts->outfile = argv[i];
                 } else {
-                    fprintf(stderr, "Expected argument after %s\n", arg);
+                    fprintf(stderr, "simplesat: %s: Expected argument\n", arg);
                     return ERROR_INVALID_USAGE;
                 }
             } else {
-                fprintf(stderr, "Invalid argument %s\n", arg);
+                fprintf(stderr, "simplesat: %s: Invalid argument\n", arg);
                 return ERROR_INVALID_USAGE;
             }
         } else {
@@ -42,7 +42,7 @@ Error parse_options(Options *opts, int argc, char **argv)
             if (opts->infile == NULL) {
                 opts->infile = arg;
             } else {
-                fprintf(stderr, "Extra argument %s\n", arg);
+                fprintf(stderr, "simplesat: %s: Extra argument\n", arg);
                 return ERROR_INVALID_USAGE;
             }
         }

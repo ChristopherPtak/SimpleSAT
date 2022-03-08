@@ -1,16 +1,18 @@
 
 #include "utils.h"
 
+#include <errno.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void *xmalloc(size_t size)
 {
     void *ptr = malloc(size);
 
     if (ptr == NULL) {
-        fprintf(stderr, "Memory allocation failure\n");
+        fprintf(stderr, "simplesat: %s\n", strerror(errno));
         abort();
     }
 
@@ -22,7 +24,7 @@ void *xrealloc(void *ptr, size_t new_size)
     void *new_ptr = realloc(ptr, new_size);
 
     if (new_ptr == NULL) {
-        fprintf(stderr, "Memory allocation failure\n");
+        fprintf(stderr, "simplesat: %s\n", strerror(errno));
         abort();
     }
 
