@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 
+#include "constants.h"
 #include "options.h"
 #include "format.h"
 #include "solver.h"
@@ -60,7 +61,7 @@ static Error solve_problem(const Options *opts)
         FILE *stream = fopen(opts->infile, "r");
 
         if (stream == NULL) {
-            fprintf(stderr, "simplesat: %s: %s\n",
+            fprintf(stderr, PROGRAM_NAME ": %s: %s\n",
                     opts->infile, strerror(errno));
             err = ERROR_FILE_ACCESS;
             goto cleanup;
@@ -86,7 +87,7 @@ static Error solve_problem(const Options *opts)
         FILE *stream = fopen(opts->outfile, "w");
 
         if (stream == NULL) {
-            fprintf(stderr, "simplesat: %s: %s\n",
+            fprintf(stderr, PROGRAM_NAME ": %s: %s\n",
                     opts->outfile, strerror(errno));
             err = ERROR_FILE_ACCESS;
             goto cleanup_solver;

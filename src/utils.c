@@ -7,12 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "constants.h"
+
 void *xmalloc(size_t size)
 {
     void *ptr = malloc(size);
 
     if (ptr == NULL) {
-        fprintf(stderr, "simplesat: %s\n", strerror(errno));
+        fprintf(stderr, PROGRAM_NAME ": %s\n", strerror(errno));
         abort();
     }
 
@@ -24,7 +26,7 @@ void *xrealloc(void *ptr, size_t new_size)
     void *new_ptr = realloc(ptr, new_size);
 
     if (new_ptr == NULL) {
-        fprintf(stderr, "simplesat: %s\n", strerror(errno));
+        fprintf(stderr, PROGRAM_NAME ": %s\n", strerror(errno));
         abort();
     }
 

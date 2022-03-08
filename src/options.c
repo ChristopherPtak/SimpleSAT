@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "version.h"
+#include "constants.h"
 #include "error.h"
 
 Error parse_options(Options *opts, int argc, char **argv)
@@ -29,11 +29,13 @@ Error parse_options(Options *opts, int argc, char **argv)
                 if (++i != argc) {
                     opts->outfile = argv[i];
                 } else {
-                    fprintf(stderr, "simplesat: %s: Expected argument\n", arg);
+                    fprintf(stderr,
+                            PROGRAM_NAME ": %s: Expected argument\n",
+                            arg);
                     return ERROR_INVALID_USAGE;
                 }
             } else {
-                fprintf(stderr, "simplesat: %s: Invalid argument\n", arg);
+                fprintf(stderr, PROGRAM_NAME ": %s: Invalid argument\n", arg);
                 return ERROR_INVALID_USAGE;
             }
         } else {
@@ -42,7 +44,7 @@ Error parse_options(Options *opts, int argc, char **argv)
             if (opts->infile == NULL) {
                 opts->infile = arg;
             } else {
-                fprintf(stderr, "simplesat: %s: Extra argument\n", arg);
+                fprintf(stderr, PROGRAM_NAME ": %s: Extra argument\n", arg);
                 return ERROR_INVALID_USAGE;
             }
         }
@@ -54,7 +56,7 @@ Error parse_options(Options *opts, int argc, char **argv)
 void show_help(void)
 {
     const char *help_text =
-        "Usage: simplesat [options] <file>\n"
+        "Usage: " PROGRAM_NAME " [options] <file>\n"
         "Options:\n"
         "  --help     Show this help text\n"
         "  --version  Show the program version\n"
@@ -65,6 +67,6 @@ void show_help(void)
 
 void show_version(void)
 {
-    fputs("SimpleSAT " SIMPLESAT_VERSION "\n", stdout);
+    fputs(PROGRAM_NAME_FANCY " " PROGRAM_VERSION "\n", stdout);
 }
 
