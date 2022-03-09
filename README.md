@@ -3,4 +3,4 @@
 
 _A simplistic boolean SAT solver_
 
-Status: **INCOMPLETE**
+Status: **COMPLETE**
