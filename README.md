@@ -1,2 +1,6 @@
+
 # SimpleSAT
-A simplistic boolean SAT solver
+
+_A simplistic boolean SAT solver_
+
+Status: **INCOMPLETE**
