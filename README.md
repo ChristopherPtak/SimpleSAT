@@ -3,4 +3,3 @@
 
 _A simplistic boolean SAT solver_
 
-Status: **COMPLETE**
