@@ -5,5 +5,6 @@ executable('simplesat',
            'src/utils.c',
            'src/options.c',
            'src/format.c',
-           'src/solver.c')
+           'src/solver.c',
+           install: true)
 
