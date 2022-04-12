@@ -143,7 +143,7 @@ void write_solution(const Solver *solver, FILE *stream)
     fprintf(stream, "c\n");
     fprintf(stream, "c Performance statistics\n");
     fprintf(stream, "c ----------------------\n");
-    fprintf(stream, "c Elapsed time:       %f (s)\n", elapsed_time);
+    fprintf(stream, "c Elapsed time:       %.3f (s)\n", elapsed_time);
     fprintf(stream, "c Attempted branches: %d\n", solver->t_branches);
     fprintf(stream, "c Unit propagations:  %d\n", solver->t_unit_props);
     fprintf(stream, "c\n");
