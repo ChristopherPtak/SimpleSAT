@@ -88,8 +88,8 @@ void add_cont_clause(LitState *lstate, ClauseState *cstate)
 }
 
 void create_solver(Solver *solver,
-                          unsigned int num_vars,
-                          unsigned int num_clauses)
+                   unsigned int num_vars,
+                   unsigned int num_clauses)
 {
     unsigned int i;
     unsigned int max_unit_props;
@@ -146,8 +146,8 @@ void delete_solver(Solver *solver)
 }
 
 void add_literal_to_clause(Solver *solver,
-                                  ClauseState *cstate,
-                                  Literal lit)
+                           ClauseState *cstate,
+                           Literal lit)
 {
     unsigned int i;
 
