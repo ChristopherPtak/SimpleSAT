@@ -3,6 +3,7 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "constants.h"
@@ -96,6 +97,12 @@ Error read_problem(Solver *solver, FILE *stream)
 
             if (repr == 0) {
                 break;
+            }
+
+            if (abs(repr) > n_vars) {
+                fprintf(stderr, PROGRAM_NAME ": Literal out of range\n");
+                err = ERROR_INVALID_FORMAT;
+                goto cleanup_solver;
             }
 
             add_literal_to_clause(solver, cstate, lit_from_int(repr));
